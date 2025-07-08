@@ -79,7 +79,7 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen bg-global-6" style={{ overflowX: 'hidden' }}>
       <Header />
       {/* Fixed Book a Site Visit CTA - Desktop only */}
-      <button
+{/*       <button
         onClick={handleBookConsultation}
         style={{
           position: 'fixed',
@@ -115,7 +115,7 @@ const HomePage: React.FC = () => {
         }}>
           Book a Site Visit
         </span>
-      </button>
+      </button> */}
       {/* Mobile Fixed Bottom Bar */}
       <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 p-3 z-50 md:hidden rounded-t-2xl">
         <div className="flex justify-between items-center gap-2">
