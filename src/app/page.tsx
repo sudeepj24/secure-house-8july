@@ -128,7 +128,7 @@ const HomePage: React.FC = () => {
       </button> */}
       {/* Mobile Fixed Bottom Bar */}
       <div
-        className="fixed bottom-4 md:bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 p-3 z-50 md:hidden rounded-t-2xl"
+        className="fixed bottom-6 md:bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 p-3 z-50 md:hidden rounded-t-2xl"
         style={{ height: 'calc(var(--vh, 1vh) * 12)' }} // 12vh for sticky footer height
       >
         <div className="flex justify-between items-center gap-2">
