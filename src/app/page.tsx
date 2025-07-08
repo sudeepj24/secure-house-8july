@@ -75,8 +75,18 @@ const HomePage: React.FC = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    const setVh = () => {
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    };
+    setVh();
+    window.addEventListener('resize', setVh);
+    return () => window.removeEventListener('resize', setVh);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-global-6" style={{ overflowX: 'hidden' }}>
+    <div className="min-h-screen bg-global-6 overflow-x-hidden">
       <Header />
       {/* Fixed Book a Site Visit CTA - Desktop only */}
 {/*       <button
@@ -117,7 +127,10 @@ const HomePage: React.FC = () => {
         </span>
       </button> */}
       {/* Mobile Fixed Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 p-3 z-50 md:hidden rounded-t-2xl">
+      <div
+        className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 p-3 z-50 md:hidden rounded-t-2xl"
+        style={{ height: 'calc(var(--vh, 1vh) * 12)' }} // 12vh for sticky footer height
+      >
         <div className="flex justify-between items-center gap-2">
           <a
             href="tel:02078594207"
@@ -176,7 +189,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
       {/* Premium Security Solutions Section */}
-      <section className="w-screen py-16 px-4 md:px-0">
+      <section className="w-full py-16 px-4 md:px-0">
         <div className="flex flex-col md:flex-row items-center gap-y-8 gap-x-8 max-w-7xl mx-auto">
           <div className="flex-1 order-2 md:order-1">
             <Image
