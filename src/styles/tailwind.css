@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Global Colors */
+    --global-bg-1: #1a1e53;
+    --global-bg-2: #4c55c8;
+    --global-bg-3: #6043dea2;
+    --global-bg-4: #6043deb2;
+    --global-bg-5: #656565;
+    --global-bg-6: #dcdcdc;
+    --global-bg-7: #e6e6e6;
+    --global-bg-8: #fffcfc;
+    --global-bg-9: #d9d9d9;
+    --global-text-1: #000000;
+    --global-text-2: #1c1e36;
+    --global-text-3: #1e1e1e;
+    --global-text-4: #1f1f1f;
+    --global-text-5: #d9d9d9;
+    --global-text-6: #e6e6e6;
+    --global-text-7: #ebebeb;
+    --global-text-8: #f6f4f4;
+    --global-text-9: #fcf6f6;
+    --global-text-10: #fff9f8;
+    --global-text-11: #fffcfc;
+    --global-text-12: #ffffff;
+    --global-text-13: #dddddd;
+    --global-text-14: #525252;
+
+    /* Header Colors */
+    --header-bg-1: #6e6e6e7f;
+    --header-text-1: #ffffff;
+
+    /* Slider Colors */
+    --slider-bg-1: #545aab;
+    --slider-bg-2: #d9d9d9;
+    --slider-bg-3: #f8f8f8;
+    --slider-bg-4: #ffffff;
+    --slider-text-1: #dddddd;
+    --slider-text-2: #e5e5e5;
+
+    /* Button Colors */
+    --button-bg-1: #4C55C8;
+    --button-text-1: #e4e4e4;
+    --button-text-2: #f5f1f1;
+    --button-text-3: #fffafa;
+
+    /* PagerIndicator Colors */
+    --pager-bg-1: #000540;
+    --pager-bg-2: #7e7e7e;
+
+    /* EditText Colors */
+    --edittext-text-1: #525252;
+
+    /* Footer Colors */
+    --footer-bg-1: #434ab0;
+    --footer-text-1: #ececec;
+  }
+}
+
+@layer utilities {
+  /* Global */
+  .bg-global-1 { background-color: var(--global-bg-1); }
+  .bg-global-2 { background-color: var(--global-bg-2); }
+  .bg-global-3 { background-color: var(--global-bg-3); }
+  .bg-global-4 { background-color: var(--global-bg-4); }
+  .bg-global-5 { background-color: var(--global-bg-5); }
+  .bg-global-6 { background-color: var(--global-bg-6); }
+  .bg-global-7 { background-color: var(--global-bg-7); }
+  .bg-global-8 { background-color: var(--global-bg-8); }
+  .bg-global-9 { background-color: var(--global-bg-9); }
+  .text-global-1 { color: var(--global-text-1); }
+  .text-global-2 { color: var(--global-text-2); }
+  .text-global-3 { color: var(--global-text-3); }
+  .text-global-4 { color: var(--global-text-4); }
+  .text-global-5 { color: var(--global-text-5); }
+  .text-global-6 { color: var(--global-text-6); }
+  .text-global-7 { color: var(--global-text-7); }
+  .text-global-8 { color: var(--global-text-8); }
+  .text-global-9 { color: var(--global-text-9); }
+  .text-global-10 { color: var(--global-text-10); }
+  .text-global-11 { color: var(--global-text-11); }
+  .text-global-12 { color: var(--global-text-12); }
+  .text-global-13 { color: var(--global-text-13); }
+  .text-global-14 { color: var(--global-text-14); }
+
+  /* Header */
+  .bg-header-1 { background-color: var(--header-bg-1); }
+  .text-header-1 { color: var(--header-text-1); }
+
+  /* Slider */
+  .bg-slider-1 { background-color: var(--slider-bg-1); }
+  .bg-slider-2 { background-color: var(--slider-bg-2); }
+  .bg-slider-3 { background-color: var(--slider-bg-3); }
+  .bg-slider-4 { background-color: var(--slider-bg-4); }
+  .text-slider-1 { color: var(--slider-text-1); }
+  .text-slider-2 { color: var(--slider-text-2); }
+
+  /* Button */
+  .bg-button-1 { background-color: var(--button-bg-1); }
+  .text-button-1 { color: var(--button-text-1); }
+  .text-button-2 { color: var(--button-text-2); }
+  .text-button-3 { color: var(--button-text-3); }
+
+  /* PagerIndicator */
+  .bg-pager-1 { background-color: var(--pager-bg-1); }
+  .bg-pager-2 { background-color: var(--pager-bg-2); }
+
+  /* EditText */
+  .text-edittext-1 { color: var(--edittext-text-1); }
+
+  /* Footer */
+  .bg-footer-1 { background-color: var(--footer-bg-1); }
+  .text-footer-1 { color: var(--footer-text-1); }
+}
