@@ -31,8 +31,8 @@ const Header = () => {
             About Us
           </Link>
         </nav>
-        {/* New CTAs */}
-        <div className="flex items-center gap-4">
+        {/* New CTAs - Desktop only */}
+        <div className="hidden md:flex items-center gap-4">
           {/* Call Now Button */}
           <a
             href="tel:02078594207"
