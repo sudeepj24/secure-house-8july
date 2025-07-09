@@ -159,6 +159,89 @@ const HomePage: React.FC = () => {
   ];
   const productSwiperRef = useRef<any>(null);
 
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    interest: '',
+    address: ''
+  });
+  const [contactStatus, setContactStatus] = useState<'success' | 'error' | null>(null);
+  const [contactStatusMsg, setContactStatusMsg] = useState('');
+  const [contactShowStatus, setContactShowStatus] = useState(false);
+  const [contactProgress, setContactProgress] = useState(100);
+  const contactTimerRef = useRef<number | null>(null);
+
+  function contactStatusUpdate(setContactProgress: any, setContactShowStatus: any, contactTimerRef: any) {
+    let start = Date.now();
+    const duration = 10000;
+    function update() {
+      const elapsed = Date.now() - start;
+      setContactProgress(Math.max(0, 100 - (elapsed / duration) * 100));
+      if (elapsed < duration) {
+        contactTimerRef.current = window.setTimeout(update, 50);
+      } else {
+        setContactShowStatus(false);
+      }
+    }
+    update();
+  }
+
+  React.useEffect(() => {
+    if (contactShowStatus) {
+      setContactProgress(100);
+      contactStatusUpdate(setContactProgress, setContactShowStatus, contactTimerRef);
+      return () => { if (contactTimerRef.current) clearTimeout(contactTimerRef.current); };
+    }
+  }, [contactShowStatus]);
+
+  const handleContactFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setContactForm(f => ({ ...f, [name]: value }));
+  };
+
+  const handleContactFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setContactStatus(null);
+    setContactShowStatus(false);
+    if (!contactForm.phone && !contactForm.email) {
+      setContactStatus('error');
+      setContactStatusMsg('Please provide at least a phone number or an email address.');
+      setContactShowStatus(true);
+      return;
+    }
+    const data = {
+      name: contactForm.name,
+      phone: contactForm.phone,
+      email: contactForm.email,
+      interest: contactForm.interest,
+      address: contactForm.address
+    };
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/sudosecure12@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          ...data,
+          _subject: 'New Secure House Contact Form Submission',
+        })
+      });
+      const result = await res.json();
+      if (result.success === 'true' || result.success === true) {
+        setContactStatus('success');
+        setContactStatusMsg('Your message was sent successfully!');
+        setContactForm({ name: '', email: '', phone: '', interest: '', address: '' });
+      } else {
+        setContactStatus('error');
+        setContactStatusMsg(result.message || 'Failed to send message. Please try again.');
+      }
+    } catch (err: any) {
+      setContactStatus('error');
+      setContactStatusMsg(err?.message || 'Failed to send message. Please try again.');
+    }
+    setContactShowStatus(true);
+  };
+
   return (
     <div className="min-h-screen bg-global-6 overflow-x-hidden">
       <Header />
@@ -1071,35 +1154,46 @@ const HomePage: React.FC = () => {
             <p className="text-global-3 font-roboto-serif text-lg font-normal leading-6 mb-6">
               We are here to help! If you have any questions how our high-quality doors and customized solutions can enhance your space or meet your project needs, feel free to reach out to us.
             </p>
-            <form ref={formRef} action="/thank-you-sd" method="POST" className="space-y-4">
+            <form 
+              ref={formRef}
+              className="space-y-4"
+              onSubmit={handleContactFormSubmit}
+            >
               <input
                 type="text"
                 name="name"
                 placeholder="Name"
                 required
                 className="w-full bg-[#FCFAFF] border border-[#C3C6D1] rounded-md p-3 text-base placeholder:text-[#A1A5B7]"
+                value={contactForm.name}
+                onChange={handleContactFormChange}
               />
               <div className="flex flex-col md:flex-row gap-4 md:gap-x-4">
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
-                  required
                   className="flex-1 bg-[#FCFAFF] border border-[#C3C6D1] rounded-md p-3 text-base placeholder:text-[#A1A5B7]"
+                  value={contactForm.email}
+                  onChange={handleContactFormChange}
                 />
                 <input
                   type="tel"
                   name="phone"
                   placeholder="Phone Number"
                   className="flex-1 bg-[#FCFAFF] border border-[#C3C6D1] rounded-md p-3 text-base placeholder:text-[#A1A5B7]"
+                  value={contactForm.phone}
+                  onChange={handleContactFormChange}
                 />
               </div>
               <select
                 name="interest"
                 required
                 className="w-full bg-[#FCFAFF] border border-[#C3C6D1] rounded-md p-3 text-base text-[#222]"
+                value={contactForm.interest}
+                onChange={handleContactFormChange}
               >
-                <option value="" disabled selected>I'm Interested In</option>
+                <option value="" disabled>I'm Interested In</option>
                 <option value="Premium Steel Security Doors">Premium Steel Security Doors</option>
                 <option value="Bullet-Proof Security Doors">Bullet-Proof Security Doors</option>
                 <option value="Fire-Rated Security Doors">Fire-Rated Security Doors</option>
@@ -1111,15 +1205,28 @@ const HomePage: React.FC = () => {
                 className="w-full bg-[#FCFAFF] border border-[#C3C6D1] rounded-md p-3 text-base placeholder:text-[#A1A5B7]"
                 placeholder="Full Postal Address"
                 rows={3}
+                value={contactForm.address}
+                onChange={handleContactFormChange}
               />
               <div className="flex justify-center pt-4">
                 <button
                   className="bg-[#4C55C8] text-white font-bold rounded-lg py-3 px-8 text-base"
                   type="submit"
+                  disabled={contactShowStatus && contactStatus === 'success'}
                 >
                   Schedule Free Consultation
                 </button>
               </div>
+              {/* Status message below the button */}
+              {contactShowStatus && (
+                <div className={`mt-6 w-full rounded-xl shadow-xl flex flex-col items-center ${contactStatus === 'success' ? 'bg-green-500' : 'bg-red-500'} text-white p-4 transition-all`}>
+                  <span className="font-bold text-lg">{contactStatus === 'success' ? 'Success' : 'Error'}:</span>
+                  <span className="mb-2">{contactStatusMsg}</span>
+                  <div className="w-full h-1 bg-white/30 rounded overflow-hidden mt-2">
+                    <div style={{ width: `${contactProgress}%`, transition: 'width 0.1s linear' }} className="h-full bg-white"></div>
+                  </div>
+                </div>
+              )}
             </form>
           </div>
         </div>
