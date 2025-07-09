@@ -242,6 +242,16 @@ const HomePage: React.FC = () => {
     setContactShowStatus(true);
   };
 
+  useEffect(() => {
+  const isInIframe = window.self !== window.top;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'page_context',
+    context: isInIframe ? 'iframe' : 'direct',
+  });
+}, []);
+
   return (
     <div className="min-h-screen bg-global-6 overflow-x-hidden">
       <Header />
@@ -285,11 +295,8 @@ const HomePage: React.FC = () => {
       </button> */}
       {/* Mobile Fixed Bottom Bar */}
       <div
-        className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 p-3 z-50 md:hidden rounded-t-2xl"
-        style={{
-          paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1.5rem)',
-          minHeight: '72px',
-        }}
+        className="fixed bottom-6 md:bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 p-3 z-50 md:hidden rounded-t-2xl"
+        style={{ height: 'calc(var(--vh, 1vh) * 12)', paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)' }}
       >
         <div className="flex justify-between items-center gap-2">
           <a
@@ -329,7 +336,6 @@ const HomePage: React.FC = () => {
           style={{ objectPosition: 'center' }}
         >
           <source src="/videos/HeroSectionVideo.mp4" type="video/mp4" />
-          <source src="/videos/HeroSectionVideo.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
         {/* Content Layer */}
