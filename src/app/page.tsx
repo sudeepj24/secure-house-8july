@@ -218,7 +218,7 @@ const HomePage: React.FC = () => {
       address: contactForm.address
     };
     try {
-      const res = await fetch('https://formsubmit.co/ajax/sudosecure12@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/spj108coding@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
