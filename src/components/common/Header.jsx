@@ -35,7 +35,7 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-4">
           {/* Call Now Button */}
           <a
-            href="tel:02078594207"
+            href="tel:+4402078594207"
             className="flex items-center gap-2 bg-white text-[#4C55C8] font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-50 transition"
             style={{ textDecoration: 'none' }}
           >

@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
           <div className="flex items-center gap-x-3">
             <Image src="/images/img_materialsymbolscalloutline_gray_300_04.svg" alt="Phone" width={24} height={24} />
-            <span className="text-sm">02078594207</span>
+            <span className="text-sm">+44 02078594207</span>
           </div>
           <div className="flex items-center gap-x-3">
             <Image src="/images/img_materialsymbolsmailrounded_gray_300_04.svg" alt="Email" width={24} height={24} />
