@@ -314,7 +314,7 @@ const HomePage: React.FC = () => {
         </div>
       </div>
       {/* Hero Section */}
-      <section className="relative bg-global-5 flex flex-col justify-center items-center overflow-hidden" style={{height: 'calc(100vh - 80px)'}}>
+      <section className="relative bg-global-5 flex flex-col justify-center items-center overflow-hidden pt-[8px] md:pt-[64px]" style={{minHeight: 'calc(100vh - 80px)'}}>
         {/* Video Background */}
         <video
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -331,8 +331,14 @@ const HomePage: React.FC = () => {
         {/* Content Layer */}
         <div className="relative z-10 w-full flex flex-col justify-center items-center px-4 md:px-8 h-full">
           <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
-            <h1 className="text-global-12 font-roboto-serif text-4xl md:text-6xl lg:text-7xl font-normal leading-tight md:leading-[71px] text-center uppercase mb-8 md:mb-12">
-              High Security Doors That Redefine Strength, Style & Safety.
+            <h1 className="mb-4 md:mb-8 text-center">
+              <span className="block font-extrabold text-4xl md:text-6xl lg:text-7xl leading-tight md:leading-[71px] font-sans md:mb-2 text-white -mt-8 md:mt-0" style={{letterSpacing: '0.01em'}}>
+                High Security Doors
+              </span>
+              <span className="block font-roboto-serif font-normal text-xl md:text-3xl lg:text-4xl leading-snug md:leading-[44px] text-global-12 mt-2">
+                <span className="block md:inline">That Redefine Strength,</span>
+                <span className="block md:inline"> Style &amp; Safety.</span>
+              </span>
             </h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-y-2 gap-x-4 mb-6 md:mb-8">
               <span className="text-slider-2 font-roboto-serif text-lg md:text-2xl font-medium leading-7 text-center md:order-2">
