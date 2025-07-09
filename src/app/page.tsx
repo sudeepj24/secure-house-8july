@@ -362,128 +362,43 @@ const HomePage: React.FC = () => {
           </h2>
           {/* Desktop Grid */}
           <div className="hidden md:grid grid-cols-4 gap-x-6 max-w-7xl mx-auto">
-            {/* Premium Steel Security Doors */}
-            <div className="bg-global-9 rounded-3xl p-6 flex flex-col items-center h-[420px]">
-              <div className="relative mb-4 w-[280px] h-[200px] rounded-3xl overflow-hidden">
-                <Image
-                  src="/images/img_image_11.png"
-                  alt="Premium Steel Security Doors"
-                  width={280}
-                  height={200}
-                  className="rounded-3xl object-cover w-full h-full"
-                />
-                <Image
-                  src="/images/img_group_10.svg"
-                  alt="Icon"
-                  width={24}
-                  height={24}
-                  className="absolute bottom-3 right-3"
-                />
+            {productSlides.map((slide, idx) => (
+              <div key={idx} className="bg-global-9 rounded-3xl p-6 flex flex-col items-center h-[420px]">
+                <div className={`relative mb-4 w-[280px] h-[200px] rounded-3xl overflow-hidden ${slide.bg ? 'bg-cover bg-center' : ''}`}
+                  style={slide.bg ? { backgroundImage: `url(${slide.image})` } : {}}>
+                  {!slide.bg && (
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      width={280}
+                      height={200}
+                      className="rounded-3xl object-cover w-full h-full"
+                    />
+                  )}
+                  <Image
+                    src={slide.icon}
+                    alt="Icon"
+                    width={24}
+                    height={24}
+                    className="absolute bottom-3 right-3"
+                  />
+                </div>
+                <h3 className="text-global-1 font-roboto-serif text-xl font-medium leading-6 text-center mb-3 h-12 flex items-center">
+                  {slide.title}
+                </h3>
+                <p className="text-global-1 font-roboto-serif text-lg font-normal leading-6 text-center mb-4 flex-1">
+                  {slide.desc}
+                </p>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  className="px-4 py-2 rounded-lg text-sm mt-auto"
+                  onClick={slide.onClick}
+                >
+                  Enquire Now
+                </Button>
               </div>
-              <h3 className="text-global-1 font-roboto-serif text-xl font-medium leading-6 text-center mb-3 h-12 flex items-center">
-                Premium Steel Security Doors
-              </h3>
-              <p className="text-global-1 font-roboto-serif text-lg font-normal leading-6 text-center mb-4 flex-1">
-                Ultimate home protection with style
-              </p>
-              <Button
-                variant="primary"
-                size="sm"
-                className="px-4 py-2 rounded-lg text-sm mt-auto"
-                onClick={() => handleEnquireNow('Premium Steel Security Doors')}
-              >
-                Enquire Now
-              </Button>
-            </div>
-            {/* Bullet-Proof Security Doors */}
-            <div className="bg-global-9 rounded-3xl p-6 flex flex-col items-center h-[420px]">
-              <div className="relative mb-4 w-[280px] h-[200px] rounded-3xl bg-cover bg-center overflow-hidden"
-                style={{ backgroundImage: 'url(/images/img_image_204.png)' }}
-              >
-                <Image
-                  src="/images/img_group_11.svg"
-                  alt="Icon"
-                  width={24}
-                  height={24}
-                  className="absolute bottom-3 right-3"
-                />
-              </div>
-              <h3 className="text-global-1 font-roboto-serif text-xl font-medium leading-6 text-center mb-3 h-12 flex items-center">
-                Bullet-Proof Security Doors
-              </h3>
-              <p className="text-global-1 font-roboto-serif text-lg font-normal leading-6 text-center mb-4 flex-1">
-                Unmatched protection for your property
-              </p>
-              <Button
-                variant="primary"
-                size="sm"
-                className="px-4 py-2 rounded-lg text-sm mt-auto"
-                onClick={() => handleEnquireNow('Bullet-Proof Security Doors')}
-              >
-                Enquire Now
-              </Button>
-            </div>
-            {/* Fire-Rated Security Doors */}
-            <div className="bg-global-9 rounded-3xl p-6 flex flex-col items-center h-[420px]">
-              <div className="relative mb-4 w-[280px] h-[200px] rounded-3xl bg-cover bg-center overflow-hidden"
-                style={{ backgroundImage: 'url(/images/img_image_13.png)' }}
-              >
-                <Image
-                  src="/images/img_group_12.svg"
-                  alt="Icon"
-                  width={24}
-                  height={24}
-                  className="absolute bottom-3 right-3"
-                />
-              </div>
-              <h3 className="text-global-1 font-roboto-serif text-xl font-medium leading-6 text-center mb-3 h-12 flex items-center">
-                Fire-Rated Security Doors
-              </h3>
-              <p className="text-global-1 font-roboto-serif text-lg font-normal leading-6 text-center mb-4 flex-1">
-                Certified fire and security protection
-              </p>
-              <Button
-                variant="primary"
-                size="sm"
-                className="px-4 py-2 rounded-lg text-sm mt-auto"
-                onClick={() => handleEnquireNow('Fire-Rated Security Doors')}
-              >
-                Enquire Now
-              </Button>
-            </div>
-            {/* Soundproof Security Doors */}
-            <div className="bg-global-9 rounded-3xl p-6 flex flex-col items-center h-[420px]">
-              <div className="relative mb-4 w-[280px] h-[200px] rounded-3xl overflow-hidden">
-                <Image
-                  src="/images/img_image_14.png"
-                  alt="Soundproof Security Doors"
-                  width={280}
-                  height={200}
-                  className="rounded-3xl object-cover w-full h-full"
-                />
-                <Image
-                  src="/images/img_group_13.svg"
-                  alt="Icon"
-                  width={24}
-                  height={24}
-                  className="absolute bottom-3 right-3"
-                />
-              </div>
-              <h3 className="text-global-1 font-roboto-serif text-xl font-medium leading-6 text-center mb-3 h-12 flex items-center">
-                Soundproof Security Doors
-              </h3>
-              <p className="text-global-1 font-roboto-serif text-lg font-normal leading-6 text-center mb-4 flex-1">
-                Peace and quiet with maximum security
-              </p>
-              <Button
-                variant="primary"
-                size="sm"
-                className="px-4 py-2 rounded-lg text-sm mt-auto"
-                onClick={() => handleEnquireNow('Soundproof Security Doors')}
-              >
-                Enquire Now
-              </Button>
-            </div>
+            ))}
           </div>
           
           {/* Mobile Slider */}
@@ -964,75 +879,30 @@ const HomePage: React.FC = () => {
         </h2>
         {/* Desktop View */}
         <div className="hidden md:flex flex-row gap-x-8 overflow-x-auto max-w-7xl mx-auto mb-8">
-          {/* Testimonial 1 */}
-          <div className="bg-slider-3 rounded-2xl p-6 flex flex-col gap-y-6 min-h-[350px] max-w-xs mx-auto">
-            <div className="flex flex-row justify-between items-start">
-              <Image src="/images/img_group.svg" alt="Quote" width={36} height={27} />
-              <Image src="/images/img_avatar_image50.png" alt="Client Avatar" width={50} height={50} className="rounded-full" />
-            </div>
-            <p className="text-global-4 font-roboto-serif text-base font-normal leading-6">
-              They do not just sell doors — they provide peace of mind. We trust them for all our premium and bulletproof door needs.
-            </p>
-            <div className="flex flex-row justify-between items-center">
-              <Image src="/images/img_image_197.png" alt="Company Logo" width={89} height={40} />
-              <div className="flex flex-col gap-y-1">
-                <span className="text-global-4 font-roboto-serif text-base font-medium leading-6">
-                  - Neha Shah
-                </span>
-                <div className="flex flex-row gap-x-1">
-                  {[...Array(4)].map((_, i) => (
-                    <Image key={i} src="/images/img_star.svg" alt="Star" width={20} height={18} />
-                  ))}
+          {testimonials.map((testimonial, idx) => (
+            <div key={idx} className="bg-slider-3 rounded-2xl p-6 flex flex-col gap-y-6 min-h-[350px] max-w-xs mx-auto">
+              <div className="flex flex-row justify-between items-start">
+                <Image src={testimonial.quoteIcon} alt="Quote" width={36} height={27} />
+                <Image src={testimonial.avatar} alt="Client Avatar" width={50} height={50} className="rounded-full" />
+              </div>
+              <p className="text-global-4 font-roboto-serif text-base font-normal leading-6">
+                {testimonial.text}
+              </p>
+              <div className="flex flex-row justify-between items-center">
+                <Image src={testimonial.companyLogo} alt="Company Logo" width={testimonial.companyLogoWidth} height={testimonial.companyLogoHeight} />
+                <div className="flex flex-col gap-y-1">
+                  <span className="text-global-4 font-roboto-serif text-base font-medium leading-6">
+                    - {testimonial.name}
+                  </span>
+                  <div className="flex flex-row gap-x-1">
+                    {[...Array(testimonial.stars)].map((_, i) => (
+                      <Image key={i} src="/images/img_star.svg" alt="Star" width={20} height={18} />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          {/* Testimonial 2 */}
-          <div className="bg-slider-3 rounded-2xl p-6 flex flex-col gap-y-6 min-h-[350px] max-w-xs mx-auto">
-            <div className="flex flex-row justify-between items-start">
-              <Image src="/images/img_vector_gray_600.svg" alt="Quote" width={36} height={27} />
-              <Image src="/images/img_avatar_image60.png" alt="Client Avatar" width={50} height={50} className="rounded-full" />
-            </div>
-            <p className="text-global-4 font-roboto-serif text-base font-normal leading-6">
-              Their craftsmanship and security are unmatched. The bulletproof doors gave our space the protection it needed.
-            </p>
-            <div className="flex flex-row justify-between items-center">
-              <Image src="/images/img_image_197.png" alt="Company Logo" width={123} height={30} />
-              <div className="flex flex-col gap-y-1">
-                <span className="text-global-4 font-roboto-serif text-base font-medium leading-6">
-                  - Nakul Rao
-                </span>
-                <div className="flex flex-row gap-x-1">
-                  {[...Array(4)].map((_, i) => (
-                    <Image key={i} src="/images/img_star.svg" alt="Star" width={20} height={18} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Testimonial 3 */}
-          <div className="bg-slider-3 rounded-2xl p-6 flex flex-col gap-y-6 min-h-[350px] max-w-xs mx-auto">
-            <div className="flex flex-row justify-between items-start">
-              <Image src="/images/img_vector_blue_gray_100_02.svg" alt="Quote" width={36} height={27} />
-              <Image src="/images/img_avatar_image60_50x50.png" alt="Client Avatar" width={50} height={50} className="rounded-full" />
-            </div>
-            <p className="text-global-4 font-roboto-serif text-base font-normal leading-6">
-              From design to installation, everything was seamless. A reliable partner for high-quality and secure door solutions.
-            </p>
-            <div className="flex flex-row justify-between items-center">
-              <Image src="/images/img_image_197.png" alt="Company Logo" width={89} height={40} />
-              <div className="flex flex-col gap-y-1">
-                <span className="text-global-4 font-roboto-serif text-base font-medium leading-6">
-                  - Nitin Dhar
-                </span>
-                <div className="flex flex-row gap-x-1">
-                  {[...Array(4)].map((_, i) => (
-                    <Image key={i} src="/images/img_star.svg" alt="Star" width={20} height={18} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
         {/* Mobile Swiper View */}
         <div className="md:hidden flex flex-col items-center w-full">
