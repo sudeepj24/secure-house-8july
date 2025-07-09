@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
       companyLogoWidth: 89,
       companyLogoHeight: 40,
       name: 'Alasdair Hutton',
-      stars: 4,
+      stars: 5,
     },
     {
       quoteIcon: '/images/img_vector_gray_600.svg',
@@ -111,7 +111,7 @@ const HomePage: React.FC = () => {
       companyLogoWidth: 123,
       companyLogoHeight: 30,
       name: 'Kai Damdalen',
-      stars: 4,
+      stars: 5,
     },
     {
       quoteIcon: '/images/img_vector_blue_gray_100_02.svg',
@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
       companyLogoWidth: 89,
       companyLogoHeight: 40,
       name: 'Rugilė Šantarienė',
-      stars: 4,
+      stars: 5,
     },
   ];
 
@@ -325,6 +325,7 @@ const HomePage: React.FC = () => {
           preload="none"
           style={{ objectPosition: 'center' }}
         >
+          <source src="/videos/HeroSectionVideo.mp4" type="video/mp4" />
           <source src="/videos/HeroSectionVideo.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
@@ -349,15 +350,15 @@ const HomePage: React.FC = () => {
               </span>
             </h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-y-2 gap-x-4 mb-6 md:mb-8">
-              <span className="text-slider-2 font-roboto-serif text-lg md:text-2xl font-medium leading-7 text-center md:order-2">
-                4.9/5 on Google • 500+ Reviews
+              <span className="text-slider-2 font-roboto-serif text-lg md:text-2xl font-medium leading-7 text-center">
+                4.9/5 on Google 
               </span>
               <Image
                 src="/images/img_image_197.png"
-                alt="Hero Image"
+                alt="Google Reviews"
                 width={60}
-                height={60}
-                className="object-contain h-[28px] md:h-[48px] lg:h-[60px] w-auto md:order-1"
+                height={28}
+                className="object-contain h-[28px] w-auto"
               />
             </div>
             <div className="flex justify-center mb-10 md:mb-16">
@@ -971,7 +972,7 @@ const HomePage: React.FC = () => {
       </div>
       {/* Client Testimonials Section */}
       <section className="px-8 py-12 md:py-20">
-        <h2 className="text-global-2 font-roboto-serif text-[30px] md:text-5xl font-semibold leading-[59px] text-center mb-2">
+        <h2 className="text-global-2 font-roboto-serif text-[30px] md:text-5xl font-semibold leading-[59px] text-center mb-10">
           What Our Client Say
         </h2>
         {/* Desktop View */}
@@ -985,17 +986,15 @@ const HomePage: React.FC = () => {
               <p className="text-global-4 font-roboto-serif text-base font-normal leading-6">
                 {testimonial.text}
               </p>
-              <div className="flex flex-row justify-between items-center">
-                <Image src={testimonial.companyLogo} alt="Company Logo" width={testimonial.companyLogoWidth} height={testimonial.companyLogoHeight} />
-                <div className="flex flex-col gap-y-1">
-                  <span className="text-global-4 font-roboto-serif text-base font-medium leading-6">
-                    - {testimonial.name}
-                  </span>
-                  <div className="flex flex-row gap-x-1">
-                    {[...Array(testimonial.stars)].map((_, i) => (
-                      <Image key={i} src="/images/img_star.svg" alt="Star" width={20} height={18} />
-                    ))}
-                  </div>
+              <div className="flex flex-col gap-y-2">
+                <div className="flex flex-row items-center gap-x-2">
+                  <Image src={testimonial.companyLogo} alt="Company Logo" width={testimonial.companyLogoWidth} height={testimonial.companyLogoHeight} />
+                  <span className="text-global-4 font-roboto-serif text-base font-medium leading-6">- {testimonial.name}</span>
+                </div>
+                <div className="flex flex-row gap-x-1 mt-1">
+                  {[...Array(testimonial.stars)].map((_, i) => (
+                    <Image key={i} src="/images/img_star.svg" alt="Star" width={20} height={18} />
+                  ))}
                 </div>
               </div>
             </div>
@@ -1040,17 +1039,15 @@ const HomePage: React.FC = () => {
                     <p className="text-global-4 font-roboto-serif text-base font-normal leading-6">
                       {testimonial.text}
                     </p>
-                    <div className="flex flex-row justify-between items-center">
-                      <Image src={testimonial.companyLogo} alt="Company Logo" width={testimonial.companyLogoWidth} height={testimonial.companyLogoHeight} />
-                      <div className="flex flex-col gap-y-1">
-                        <span className="text-global-4 font-roboto-serif text-base font-medium leading-6">
-                          - {testimonial.name}
-                        </span>
-                        <div className="flex flex-row gap-x-1">
-                          {[...Array(testimonial.stars)].map((_, i) => (
-                            <Image key={i} src="/images/img_star.svg" alt="Star" width={20} height={18} />
-                          ))}
-                        </div>
+                    <div className="flex flex-col gap-y-2">
+                      <div className="flex flex-row items-center gap-x-2">
+                        <Image src={testimonial.companyLogo} alt="Company Logo" width={testimonial.companyLogoWidth} height={testimonial.companyLogoHeight} />
+                        <span className="text-global-4 font-roboto-serif text-base font-medium leading-6">- {testimonial.name}</span>
+                      </div>
+                      <div className="flex flex-row gap-x-1 mt-1">
+                        {[...Array(testimonial.stars)].map((_, i) => (
+                          <Image key={i} src="/images/img_star.svg" alt="Star" width={20} height={18} />
+                        ))}
                       </div>
                     </div>
                   </div>
