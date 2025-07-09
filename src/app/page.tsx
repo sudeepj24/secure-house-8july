@@ -207,14 +207,14 @@ const HomePage: React.FC = () => {
       >
         <div className="flex justify-between items-center gap-2">
           <a
-            href="tel:02078594207"
+            href="tel:+442078594207"
             className="flex-1 flex items-center justify-center gap-2 bg-[#4C55C8] text-white font-bold py-3 px-4 rounded-lg text-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2z" fill="white"/></svg>
             Call 
           </a>
           <a
-            href="https://wa.me/442078594207"
+            href="https://wa.me/447833818001"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-3 px-4 rounded-lg text-sm"
@@ -1038,7 +1038,7 @@ const HomePage: React.FC = () => {
                     Phone Number
                   </h4>
                   <span className="text-global-11 font-roboto-serif text-lg font-normal leading-6">
-                    02078594207
+                    +44 2078594207
                   </span>
                 </div>
               </div>
