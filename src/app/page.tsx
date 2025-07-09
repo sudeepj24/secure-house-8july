@@ -242,11 +242,11 @@ const HomePage: React.FC = () => {
     setContactShowStatus(true);
   };
 
-  useEffect(() => {
+ useEffect(() => {
   const isInIframe = window.self !== window.top;
 
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  (window as any).dataLayer.push({
     event: 'page_context',
     context: isInIframe ? 'iframe' : 'direct',
   });
