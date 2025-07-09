@@ -297,7 +297,7 @@ const HomePage: React.FC = () => {
             Call 
           </a>
           <a
-            href="https://wa.me/447833818001"
+            href="https://wa.me/447778840416"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-3 px-4 rounded-lg text-sm"
@@ -332,7 +332,15 @@ const HomePage: React.FC = () => {
         <div className="relative z-10 w-full flex flex-col justify-center items-center px-4 md:px-8 h-full">
           <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
             <h1 className="mb-4 md:mb-8 text-center">
-              <span className="block font-extrabold text-4xl md:text-6xl lg:text-7xl leading-tight md:leading-[71px] font-sans md:mb-2 text-white -mt-8 md:mt-0" style={{letterSpacing: '0.01em'}}>
+              <span
+                className="font-extrabold text-6xl md:text-6xl lg:text-7xl leading-tight md:leading-[71px] font-sans text-white"
+                style={{
+                  letterSpacing: '0.01em',
+                  display: 'block',
+                  marginTop: '-80px',
+                  marginBottom: '50px',
+                }}
+              >
                 High Security Doors
               </span>
               <span className="block font-roboto-serif font-normal text-xl md:text-3xl lg:text-4xl leading-snug md:leading-[44px] text-global-12 mt-2">
