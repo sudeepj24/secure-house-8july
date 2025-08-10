@@ -218,13 +218,13 @@ const HomePage: React.FC = () => {
       address: contactForm.address
     };
     try {
-      const res = await fetch('https://formsubmit.co/ajax/sudosecure12@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/info@thelotusroots.co.uk', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           ...data,
           _subject: 'High Security Doors Ads - Contact Form Submission',
-          _cc: 'spj24india@gmail.com'
+          _cc: 'info@secure-house.co.uk'
         })
       });
       const result = await res.json();
