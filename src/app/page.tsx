@@ -223,7 +223,8 @@ const HomePage: React.FC = () => {
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           ...data,
-          _subject: 'New Secure House Contact Form Submission',
+          _subject: 'High Security Doors Ads - Contact Form Submission',
+          _cc: 'spj24india@gmail.com'
         })
       });
       const result = await res.json();
