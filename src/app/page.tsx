@@ -224,7 +224,7 @@ const HomePage: React.FC = () => {
         body: JSON.stringify({
           ...data,
           _subject: 'High Security Doors Ads - Contact Form Submission',
-          _cc: 'info@secure-house.co.uk'
+
         })
       });
       const result = await res.json();
